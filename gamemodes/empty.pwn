@@ -10,6 +10,7 @@
 #include <extra/a_mysql>
 #include <extra/Pawn.CMD>
 #include <extra/sscanf2>
+#include <extra/foreach>
 #include <extra/streamer>
 #include <extra/easyDialog>
 #include <extra/weapon-config>
@@ -957,6 +958,12 @@ CMD:a(playerid, params[])
 	if(playerData[playerid][pAdminLevel] < 1) return DeniedAuthority(playerid);
 	if(isnull(params)) return KomutBilgisi(playerid, "/a(dmin) [metin girin]");
 
-	SendClientMessageEx(playerid, 0xe84a4aFF, "** Admin %s: %s", GetPlayerNameEx(playerid), params);
+	foreach(new i : Player)
+	{
+		if(playerData[i][pAdminLevel] > 0)
+		{
+			SendClientMessageEx(i, 0xe84a4aFF, "** Admin %s: %s", GetPlayerNameEx(playerid), params);
+		}
+	}
 	return true;
 }
