@@ -26,7 +26,7 @@
 #define GAMEMODE_NAME                   "Empty Gamemode - |||2022|||"
 #define GAMEMODE_TEXT                   "Mixed v1.0.0"
 #define GAMEMODE_WEB                    "na-mevcut"
-#define GAMEMODE_LANG                   "TRTürkçeTürkiyeTurkishTurk"
+#define GAMEMODE_LANG                   "TRTÃ¼rkÃ§eTÃ¼rkiyeTurkishTurk"
 #define GAMEMODE_MAP					"anywhere"
 #define DEFAULT_SKIN					(26)
 //------------------------------------------------------------------//
@@ -118,7 +118,7 @@ stock SendClientMessageEx(playerid, color, const text[], {Float, _}:...)
 
 stock DeniedAuthority(playerid)
 {
-	SendClientMessage(playerid, 0xd90f00FF, "HATA | Bu komuta erişim izniniz bulunmuyor.");
+	SendClientMessage(playerid, 0xd90f00FF, "HATA | Bu komuta eriÅŸim izniniz bulunmuyor.");
 	return true;
 }
 
@@ -215,15 +215,15 @@ stock HazirKayitGirisMenusu(playerid, dialog_, string[] = "")
 		case REGISTER_METHOD: 
 		{
 			if(playerData[playerid][pRuleReading] >= 1 && playerData[playerid][pRuleReading] < READING_RULE_TIME) return true;
-			format(datastring, sizeof(datastring), "%s{FFFFFF}Merhaba {1AFF1A}%s{FFFFFF}, Turkish Texas'a hoş geldiniz!\n\nBu hesap kayıtlı değil, oynamak için bir şifre oluşturun.", datastring, GetPlayerNameEx(playerid));
-			Dialog_Show(playerid, KAYIT_MENUSU, DIALOG_STYLE_INPUT, "{1EC684}>{13DE8E}>{06FE9C}>{FFFFFF} Kayıt Ekranı", datastring, "Onayla", "Iptal");
+			format(datastring, sizeof(datastring), "%s{FFFFFF}Merhaba {1AFF1A}%s{FFFFFF}, Turkish Texas'a hoÅŸ geldiniz!\n\nBu hesap kayÄ±tlÄ± deÄŸil, oynamak iÃ§in bir ÅŸifre oluÅŸturun.", datastring, GetPlayerNameEx(playerid));
+			Dialog_Show(playerid, KAYIT_MENUSU, DIALOG_STYLE_INPUT, "{1EC684}>{13DE8E}>{06FE9C}>{FFFFFF} KayÄ±t EkranÄ±", datastring, "Onayla", "Iptal");
 		}
 		case LOGIN_METHOD: 
 		{
 			if(strlen(playerData[playerid][pPassword]) < 1)
 			{
-				format(datastring, sizeof(datastring), "%s{FFFFFF}Merhaba {1AFF1A}%s{FFFFFF}, Turkish Texas'a hoş geldin!\n\nBu hesap kayıtlı, hesapta oynamak için hemen giriş yapabilirsin:", datastring, GetPlayerNameEx(playerid));
-				Dialog_Show(playerid, GIRIS_MENUSU, DIALOG_STYLE_PASSWORD, "{1EC684}>{13DE8E}>{06FE9C}>{FFFFFF} Giriş Ekranı", datastring, "Onayla", "Iptal");
+				format(datastring, sizeof(datastring), "%s{FFFFFF}Merhaba {1AFF1A}%s{FFFFFF}, Turkish Texas'a hoÅŸ geldin!\n\nBu hesap kayÄ±tlÄ±, hesapta oynamak iÃ§in hemen giriÅŸ yapabilirsin:", datastring, GetPlayerNameEx(playerid));
+				Dialog_Show(playerid, GIRIS_MENUSU, DIALOG_STYLE_PASSWORD, "{1EC684}>{13DE8E}>{06FE9C}>{FFFFFF} GiriÅŸ EkranÄ±", datastring, "Onayla", "Iptal");
 			}
 			else
 			{
@@ -247,21 +247,21 @@ stock ShowServerRules(playerid)
 		format(waitingtime, sizeof(waitingtime), "{47B1FF}OK");
 		if(playerData[playerid][pRuleReading] == 0)
 		{	
-			format(laststring, sizeof(laststring), "\n{DE0D0D}** Kayıt işlemine devam edebilirsiniz.");
+			format(laststring, sizeof(laststring), "\n{DE0D0D}** KayÄ±t iÅŸlemine devam edebilirsiniz.");
 		}
 		else if(playerData[playerid][pRuleReading] == -1)
 		{
-			format(laststring, sizeof(laststring), "\n{7C7C7C}** Kuralları baştan sona okudunuz ve tümünü kabul ettiniz.");
+			format(laststring, sizeof(laststring), "\n{7C7C7C}** KurallarÄ± baÅŸtan sona okudunuz ve tÃ¼mÃ¼nÃ¼ kabul ettiniz.");
 		}
 	}
-	format(dialogstring, sizeof(dialogstring), "%s\n{FFFFFF}1.) Üstünlük sağlayan modlar kullanmak YASAKTIR. (Hileler, üçüncü parti yazılım ile eklenti eklemek vb.).\n", dialogstring);
-	format(dialogstring, sizeof(dialogstring), "%s2.) Herhangi bir ceza aldığınızda, ceza süresini beklemeden yeni hesap açmak YASAKTIR.\n", dialogstring);
-	format(dialogstring, sizeof(dialogstring), "%s3.) Herkese açık kanallarda hakaret etmek ve arka arkaya hızlı bir şekilde yazmak YASAKTIR.\n", dialogstring);
+	format(dialogstring, sizeof(dialogstring), "%s\n{FFFFFF}1.) ÃœstÃ¼nlÃ¼k saÄŸlayan modlar kullanmak YASAKTIR. (Hileler, Ã¼Ã§Ã¼ncÃ¼ parti yazÄ±lÄ±m ile eklenti eklemek vb.).\n", dialogstring);
+	format(dialogstring, sizeof(dialogstring), "%s2.) Herhangi bir ceza aldÄ±ÄŸÄ±nÄ±zda, ceza sÃ¼resini beklemeden yeni hesap aÃ§mak YASAKTIR.\n", dialogstring);
+	format(dialogstring, sizeof(dialogstring), "%s3.) Herkese aÃ§Ä±k kanallarda hakaret etmek ve arka arkaya hÄ±zlÄ± bir ÅŸekilde yazmak YASAKTIR.\n", dialogstring);
 	if(strlen(laststring) > 0)
 	{
 		format(dialogstring, sizeof(dialogstring), "%s%s", dialogstring, laststring);
 	}
-	format(header_, sizeof(header_), "{8044A5}>{902ACE}>{BA47FF}>{FFFFFF} Zorunlu Tutulan Sunucu Kuralları %s", (playerData[playerid][pRuleReading] <= 0) ? ("{6CFE44}[OKUNDU]") : ("{9D9D9D}[OKUNMADI]"));
+	format(header_, sizeof(header_), "{8044A5}>{902ACE}>{BA47FF}>{FFFFFF} Zorunlu Tutulan Sunucu KurallarÄ± %s", (playerData[playerid][pRuleReading] <= 0) ? ("{6CFE44}[OKUNDU]") : ("{9D9D9D}[OKUNMADI]"));
 	Dialog_Show(playerid, SUNUCU_KURALLARI, DIALOG_STYLE_MSGBOX, header_, dialogstring, waitingtime, "");
 	return true;
 }
@@ -300,7 +300,7 @@ stock GivePlayerToFreeroamWeapons(playerid, number)
 
 function:LoginMethodControl(playerid, inputtext[])
 {
-	if(strlen(inputtext) < 6) return HazirKayitGirisMenusu(playerid, LOGIN_METHOD, "Geçersiz şifre!");
+	if(strlen(inputtext) < 6) return HazirKayitGirisMenusu(playerid, LOGIN_METHOD, "GeÃ§ersiz ÅŸifre!");
 	
 	new query[128], Cache:getQuery;
 	mysql_format(conn, query, sizeof(query), "SELECT * FROM `oyuncular` WHERE `Nick` LIKE '%e' AND `Password` LIKE sha1('%e') LIMIT 1", GetPlayerNameEx(playerid), inputtext);
@@ -324,7 +324,7 @@ function:LoginMethodControl(playerid, inputtext[])
 		Giris_TextdrawSondur(playerid);
 	}
 	else{
-		HazirKayitGirisMenusu(playerid, LOGIN_METHOD, "Yanlış şifre!");
+		HazirKayitGirisMenusu(playerid, LOGIN_METHOD, "YanlÄ±ÅŸ ÅŸifre!");
 	}
 	cache_delete(getQuery);
 	return true;
@@ -344,7 +344,7 @@ function:LoadGamemodeSettings()
 {
     mysql_log(ERROR | WARNING);
     conn = mysql_connect("localhost", "root", "aDmin133729", "derby");
-    if(mysql_errno(conn)) return printf("--------------------------------------\n\n•[!mySQL]: Bilesen baglantisi basarisiz, yeniden deneyin."), SetTimer("RconExitTimer", 1000, true);
+    if(mysql_errno(conn)) return printf("--------------------------------------\n\nâ€¢[!mySQL]: Bilesen baglantisi basarisiz, yeniden deneyin."), SetTimer("RconExitTimer", 1000, true);
 
     mysql_set_charset("latin5", conn);
     printf("--------------------------------------\n\n[mySQL]: Bilesen baglantisi basariyla saglandi.");
@@ -715,7 +715,7 @@ function: UpdateRuleTiming(playerid)
 				mysql_format(conn, query, sizeof(query), "INSERT INTO `oyuncular` (`Nick`, `Password`, `Date`) VALUES ('%e', sha1('%e'), '%d')", GetPlayerNameEx(playerid), playerData[playerid][pPassword], gettime());
 				mysql_query(conn, query);
 
-				Dialog_Show(playerid, EMPTY_DIALOG, DIALOG_STYLE_MSGBOX, "{BB3434}>{E11F1F}>{FF5C5C}>{FFFFFF} Bilgilendirme Kutucuğu", "• Hesap şifreniz otomatik olarak getirildi, GİRİŞ YAP butonuna basabilirsiniz.\n\n{7C7C7C}** Kurallara uygun şekilde davranmayı unutmayın...", "{FF0000}OK", "");
+				Dialog_Show(playerid, EMPTY_DIALOG, DIALOG_STYLE_MSGBOX, "{BB3434}>{E11F1F}>{FF5C5C}>{FFFFFF} Bilgilendirme KutucuÄŸu", "â€¢ Hesap ÅŸifreniz otomatik olarak getirildi, GÄ°RÄ°Å YAP butonuna basabilirsiniz.\n\n{7C7C7C}** Kurallara uygun ÅŸekilde davranmayÄ± unutmayÄ±n...", "{FF0000}OK", "");
 				RegisterLoginScreen(playerid);
 			}
 		}
@@ -752,8 +752,8 @@ Dialog:SUNUCU_KURALLARI(playerid, response, listitem, inputtext[])
 Dialog:KAYIT_MENUSU(playerid, response, listitem, inputtext[])
 {
 	if(!response) return true;
-	if(strlen(inputtext) < 6) return HazirKayitGirisMenusu(playerid, REGISTER_METHOD, "Girdiğiniz şifre 6 karakterin altında olamaz.");
-	if(strlen(inputtext) > 32) return HazirKayitGirisMenusu(playerid, REGISTER_METHOD, "Girdiğiniz şifre 32 karakterin üzerinde olamaz.");
+	if(strlen(inputtext) < 6) return HazirKayitGirisMenusu(playerid, REGISTER_METHOD, "GirdiÄŸiniz ÅŸifre 6 karakterin altÄ±nda olamaz.");
+	if(strlen(inputtext) > 32) return HazirKayitGirisMenusu(playerid, REGISTER_METHOD, "GirdiÄŸiniz ÅŸifre 32 karakterin Ã¼zerinde olamaz.");
 
 	format(playerData[playerid][pPassword], 30, inputtext);
 	if(playerData[playerid][pRuleReading] >= READING_RULE_TIME){
@@ -762,7 +762,7 @@ Dialog:KAYIT_MENUSU(playerid, response, listitem, inputtext[])
 		PlayerTextDrawSetSelectable(playerid, KayitGiris[7][playerid], false);
 		PlayerTextDrawShow(playerid, KayitGiris[7][playerid]);
 		PlayerTextDrawSetString(playerid, KayitGiris[7][playerid], "GIRIS YAP");
-		Dialog_Show(playerid, EMPTY_DIALOG, DIALOG_STYLE_MSGBOX, "{45A93C}>{34DE25}>{61FC53}>{FFFFFF} Bilgilendirme Kutucuğu", "{FF0000}•{FFFFFF} Harika, kayıt işlemine devam edebilmek için bir adım kaldı! Şimdi {29C4D6}OYUN KURALLARI{FFFFFF} seçeneğine tıklayın...", "OK", "");
+		Dialog_Show(playerid, EMPTY_DIALOG, DIALOG_STYLE_MSGBOX, "{45A93C}>{34DE25}>{61FC53}>{FFFFFF} Bilgilendirme KutucuÄŸu", "{FF0000}â€¢{FFFFFF} Harika, kayÄ±t iÅŸlemine devam edebilmek iÃ§in bir adÄ±m kaldÄ±! Åimdi {29C4D6}OYUN KURALLARI{FFFFFF} seÃ§eneÄŸine tÄ±klayÄ±n...", "OK", "");
 		return true;
 	}
 	if(playerData[playerid][pRuleReading] <= 0)
@@ -773,7 +773,7 @@ Dialog:KAYIT_MENUSU(playerid, response, listitem, inputtext[])
 			mysql_format(conn, query, sizeof(query), "INSERT INTO `oyuncular` (`Nick`, `Password`, `Date`) VALUES ('%e', sha1('%e'), '%d')", GetPlayerNameEx(playerid), playerData[playerid][pPassword], gettime());
 			mysql_query(conn, query);
 
-			Dialog_Show(playerid, EMPTY_DIALOG, DIALOG_STYLE_MSGBOX, "{BB3434}>{E11F1F}>{FF5C5C}>{FFFFFF} Bilgilendirme Kutucuğu", "• Hesap şifreniz otomatik olarak getirildi, GİRİŞ YAP butonuna basabilirsiniz.\n\n{7C7C7C}** Kurallara uygun şekilde davranmayı unutmayın...", "{FF0000}OK", "");
+			Dialog_Show(playerid, EMPTY_DIALOG, DIALOG_STYLE_MSGBOX, "{BB3434}>{E11F1F}>{FF5C5C}>{FFFFFF} Bilgilendirme KutucuÄŸu", "â€¢ Hesap ÅŸifreniz otomatik olarak getirildi, GÄ°RÄ°Å YAP butonuna basabilirsiniz.\n\n{7C7C7C}** Kurallara uygun ÅŸekilde davranmayÄ± unutmayÄ±n...", "{FF0000}OK", "");
 			RegisterLoginScreen(playerid);
 		}
 	}
@@ -821,14 +821,14 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
     	}
     	else
     	{
-    		Dialog_Show(playerid, EMPTY_DIALOG, DIALOG_STYLE_MSGBOX, "{BB3434}>{E11F1F}>{FF5C5C}>{FFFFFF} Bilgilendirme Kutucuğu", "{FFFFFF}• Öncelik olarak bir şifreye ihtiyacınız var. {CDCDCD}KAYIT OL{FFFFFF} butonuna tıklayın ve şifrenizi tanımlayın.", "{FF0000}OK", "");
+    		Dialog_Show(playerid, EMPTY_DIALOG, DIALOG_STYLE_MSGBOX, "{BB3434}>{E11F1F}>{FF5C5C}>{FFFFFF} Bilgilendirme KutucuÄŸu", "{FFFFFF}â€¢ Ã–ncelik olarak bir ÅŸifreye ihtiyacÄ±nÄ±z var. {CDCDCD}KAYIT OL{FFFFFF} butonuna tÄ±klayÄ±n ve ÅŸifrenizi tanÄ±mlayÄ±n.", "{FF0000}OK", "");
     	}
     }
     else if(playertextid == KayitGiris[12][playerid])
     {
     	Dialog_Show(playerid, EMPTY_DIALOG, DIALOG_STYLE_MSGBOX, "{008710}>{00BA16}>{00FA1D}>{FFFFFF} Hesap Sizin Mi?", "{FFFFFF}\
-    		Bu sizin hesabınız değilse, lütfen SA-MP başlatıcısında takma\nadınızı değiştirin ve sunucuya yeniden girin.\n\n\
-    		Henüz başkası tarafından kaydedilmemiş bir nick bulmaya çalışın.\
+    		Bu sizin hesabÄ±nÄ±z deÄŸilse, lÃ¼tfen SA-MP baÅŸlatÄ±cÄ±sÄ±nda takma\nadÄ±nÄ±zÄ± deÄŸiÅŸtirin ve sunucuya yeniden girin.\n\n\
+    		HenÃ¼z baÅŸkasÄ± tarafÄ±ndan kaydedilmemiÅŸ bir nick bulmaya Ã§alÄ±ÅŸÄ±n.\
     	", "OK", "");
     }
     return true;
